@@ -8,9 +8,33 @@
     <meta name="author" content="Francisco Javier Caracuel Beltrán"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
+    <link rel="stylesheet" type="text/css" href="./public/css/styles.css"/>
+
   </head>
 
   <body>
-    <h1>It works</h1>
+    <main id="mainContainer">
+        <!-- Search area-->
+        <div id="searchContainer">
+            <form id="searchForm">
+                <input class="searchInput" type="text" name="search-title" value="" placeholder="Type what you want to search..."><br>
+                <select class="searchSelect" name="search-select" id="search-select">
+                    <option>All</option>
+                    <option>Movies</option>
+                    <option>Episodes</option>
+                    <option>Series</option>
+                </select>
+                <button class="btn" >Search</button>
+            </form>
+        </div>
+        <!-- List of results area -->
+        <div id="resultsContainer">
+            <span class="resultsSpan"></span>
+        </div>
+        <!-- Detail area -->
+        <div id="detailContainer">
+
+        </div>
+    </main>
   </body>
 </html>
