@@ -116,9 +116,9 @@ const successDetails = (response, extraData) => {
         />
         <div id="contentDetailContainer">
             <div>
-                <span>${response.Title} (${response.Year})</span>
+                <span class="titleDetail">${response.Title} (${response.Year})</span>
             </div>
-            <div>
+            <div id="durationGenreReleasedDetailContainer">
                 <span>${response.Runtime} | ${response.Genre} | ${response.Released}</span>
             </div>
             <div>
@@ -126,7 +126,7 @@ const successDetails = (response, extraData) => {
             </div>
         </div>
         <div>
-            <span>${response.imdbRating}</span>/10
+            <span class="ratingTextDetail">${response.imdbRating}</span>/10
         </div>
         `)
     } else{
