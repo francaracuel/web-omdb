@@ -9,5 +9,7 @@ const search = () => {
 
 const showElement = (id, index) => {
     changeRowColor(index)
-    alert(id)
+    post({
+        i: id
+    }, beforeDetails, successDetails)
 }
