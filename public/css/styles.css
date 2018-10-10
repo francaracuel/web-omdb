@@ -18,11 +18,12 @@ a{
     display: flex;
     justify-content: center;
     padding-top: 50px;
-    padding-bottom: 50px
+    padding-bottom: 50px;
 }
 
 .searchInput{
     width: 400px;
+    max-width: 400px;
     height: 25px;
     padding-left: 20px;
     margin-right: 20px;
@@ -89,6 +90,8 @@ a{
 
 .resultsImg{
     border: solid 1px black;
+    max-width: 100%;
+    object-fit: scale-down;
 }
 
 /* Details */
@@ -102,18 +105,20 @@ a{
 
 #contentDetailContainer{
     display: flex;
-    flex-direction: column
-}
-
-#contentDetailContainer{
+    flex-direction: column;
     flex-grow: 1;
-    padding-left: 20px;
+    padding-left: 30px;
     padding-right: 20px;
 }
 
 #durationGenreReleasedDetailContainer{
     margin-top: 15px;
-    margin-bottom: 50px
+    margin-bottom: 50px;
+    padding-right: 20px;
+}
+
+#imdbRatingContainer{
+    padding-right: 20px
 }
 
 .titleDetail{
@@ -122,4 +127,44 @@ a{
 
 .ratingTextDetail{
     font-size: 20px
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    #searchContainer{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center
+    }
+
+    .searchInput, .searchSelect, .btn {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .searchInput{
+        padding-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #resultsTextContainer, #resultsPaginationContainer{
+        text-align: center;
+    }
+
+    #detailContainer{
+        flex-direction: column;
+    }
+
+    #contentDetailContainer, #imdbRatingContainer{
+        align-self: center
+    }
+
+    .titleDetail, #durationGenreReleasedDetailContainer, #imdbRatingContainer{
+        margin-top: 30px;
+        text-align: center
+    }
+
 }

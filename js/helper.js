@@ -126,12 +126,9 @@ const successDetails = (response, extraData) => {
             class="resultsImg"
             src="${response.Poster}"
             alt="${response.Title}"
-            width="200"
         />
         <div id="contentDetailContainer">
-            <div>
-                <span class="titleDetail">${response.Title} (${response.Year})</span>
-            </div>
+            <span class="titleDetail">${response.Title} (${response.Year})</span>
             <div id="durationGenreReleasedDetailContainer">
                 <span>${response.Runtime} | ${response.Genre} | ${response.Released}</span>
             </div>
@@ -139,7 +136,7 @@ const successDetails = (response, extraData) => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </div>
         </div>
-        <div>
+        <div id="imdbRatingContainer">
             <span class="ratingTextDetail">${response.imdbRating}</span>/10
         </div>
         `)
