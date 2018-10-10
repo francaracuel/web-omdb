@@ -1,11 +1,18 @@
+body{
+    margin-bottom: 50px
+}
+
 a{
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 
 #mainContainer{
     
 }
+
+/* Search */
 
 #searchContainer{
     display: flex;
@@ -72,9 +79,29 @@ a{
 }
 
 .resultsTable td:last-child{
-    text-align: center
+    text-align: center;
 }
 
 .resultsImg{
-    border: solid 1px black
+    border: solid 1px black;
+}
+
+/* Details */
+
+#detailContainer{
+    display: flex;
+    flex-direction: row;
+    margin: 0px 20px 20px 20px;
+    padding: 20px;
+}
+
+#contentDetailContainer{
+    display: flex;
+    flex-direction: column
+}
+
+#contentDetailContainer{
+    flex-grow: 1;
+    padding-left: 20px;
+    padding-right: 20px;
 }
