@@ -12,15 +12,36 @@ const successSearch = (response, extraData) => {
             for "${extraData.searchedValue}".</span>`)
 
         // Table
-        $("#resultsTableContainer").html("<table><tbody id='bodyTable'></tbody></table>");
-        response.Search.map((element) =>
+        $("#resultsTableContainer").html(`
+        <table class="resultsTable" cellspacing="0" cellpadding="5">
+            <tbody id='bodyTable'>
+            </tbody>
+        </table>`);
+        response.Search.map((element, index) =>
             $("#bodyTable").append(`
-            <tr>
-                <td>${element.Poster}</td>
-                <td>${element.Title}</td>
-                <td>${element.Year}</td>
-                <td>${element.Type}</td>
-                <td>${element.imdbID}</td>
+            <tr class="rowResultTable">
+                <td>
+                    <input type="hidden" value="${element.imdbID}"/>
+                    <a href="#" onclick="showElement('${element.imdbID}', ${index})">
+                        <img
+                            class="resultsImg"
+                            src="${element.Poster}"
+                            alt="${element.Title}"
+                            height="42"
+                            width="42"
+                        />
+                    </a>
+                </td>
+                <td>
+                    <a href="#" onclick="showElement('${element.imdbID}', ${index})">
+                        ${element.Title} (${element.Year})
+                    </a>
+                </td>
+                <td>
+                    <a href="#" onclick="showElement('${element.imdbID}', ${index})">
+                        (${showResultTypeElement(element.Type)})
+                    </a>
+                </td>
             </tr>`))
         
     } else{
@@ -29,7 +50,7 @@ const successSearch = (response, extraData) => {
     }
 }
 
-const showTypeMovie = () => {
+const showSearchTypeElement = () => {
     typeSearch.forEach(element => 
         $("#search-select").append(`<option>${element}</option>`))
 }
@@ -58,4 +79,22 @@ const getTypeSearch = (selectedValue) => {
     }
     return type
     */
+}
+
+const showResultTypeElement = (element) => {
+    switch(element){
+        case "movie":
+            return "Movie"
+        case "episodes":
+            return "Episodes"
+        case "series":
+            return "Serie"
+        default:
+            return "NA"
+    }
+}
+
+const changeRowColor = (index) => {
+    $(`.rowResultTable`).css("background-color", "white")
+    $(`.rowResultTable:nth-child(${index+1})`).css("background-color", "#d1e8ff")
 }
