@@ -6,3 +6,8 @@ const search = () => {
         type: selectedValue
     }, beforeSearch, successSearch, { searchedValue: searchedValue})
 }
+
+const showElement = (id, index) => {
+    changeRowColor(index)
+    alert(id)
+}

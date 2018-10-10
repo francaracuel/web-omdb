@@ -1,3 +1,8 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+
 #mainContainer{
     
 }
@@ -32,4 +37,44 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+}
+
+#resultsContainer{
+}
+
+#resultsTextContainer{
+    text-align: start;
+    padding: 0px 20px 20px 20px;
+}
+
+#resultsTableContainer{
+    padding: 0px 20px 20px 20px;
+}
+
+.resultsTable{
+    border: solid 1px black;
+    width: 100%;
+    margin: 0px
+}
+
+.rowResultTable:hover{
+    background-color: #EEEEEE
+}
+
+.resultsTable td{
+    border-bottom: solid 1px black;
+    padding: 5px 20px 5px 20px;
+}
+
+.resultsTable td:first-child{
+    border-right: solid 1px black;
+    text-align: center
+}
+
+.resultsTable td:last-child{
+    text-align: center
+}
+
+.resultsImg{
+    border: solid 1px black
 }
