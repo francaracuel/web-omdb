@@ -5,12 +5,26 @@ const beforeSearch = () => {
 }
 
 const successSearch = (response, extraData) => {
-    cleanDetailHTML()
+    extraData.cleanHTML && cleanHTML()
     if(response && response.Response && response.Response === "True"){
         // Total results
         const resultsText = response.totalResults === 1 ? "Result" : "Results"
-        $("#resultsTextContainer").html(`<span>${response.totalResults} ${resultsText} 
-            for "${extraData.searchedValue}".</span>`)
+        $("#resultsTextContainer").html(`
+        <span>
+            ${response.totalResults} ${resultsText} for "${extraData.searchedValue}".
+        </span>`)
+
+        // Pagination
+        const maxPage = Math.ceil(response.totalResults/ELEMENTS_BY_PAGE)
+        $("#resultsPaginationContainer").html(`
+        <div>
+            <span>
+                Page ${extraData.page} of
+                    ${maxPage}
+            </span>
+            <button onclick="resultsPrevious('${extraData.searchedValue}', '${extraData.selectedValue}')">Previous</button>
+            <button onclick="resultsNext('${extraData.searchedValue}', '${extraData.selectedValue}', ${maxPage})">Next</button>
+        </div>`)
 
         // Table
         $("#resultsTableContainer").html(`
@@ -134,7 +148,20 @@ const successDetails = (response, extraData) => {
     }
 }
 
-const cleanDetailHTML = () => {
+const cleanHTML = () => {
+    $("#page").val(1)
     $("#detailContainer").html("")
     $("#detailContainer").css("border", "0px")
+    $("#resultsPaginationContainer").html("")
+}
+
+// Pagination
+const resultsPrevious = (searchedValue, selectedValue) => {
+    const page = parseInt($("#page").val())
+    page - 1 > 0 && $("#page").val(page - 1) && search(searchedValue, selectedValue, false)
+}
+
+const resultsNext = (searchedValue, selectedValue, maxPage) => {
+    const page = parseInt($("#page").val())
+    page + 1 <= maxPage && $("#page").val(page + 1) && search(searchedValue, selectedValue, false)
 }

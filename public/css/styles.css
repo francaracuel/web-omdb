@@ -54,6 +54,11 @@ a{
     padding: 0px 20px 20px 20px;
 }
 
+#resultsPaginationContainer{
+    text-align: start;
+    padding: 0px 20px 20px 20px;
+}
+
 #resultsTableContainer{
     padding: 0px 20px 20px 20px;
 }
